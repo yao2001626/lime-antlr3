@@ -1,5 +1,4 @@
-// $ANTLR 3.4 lime\\antlr3\\Def.g 2016-04-24 23:52:40
-
+// $ANTLR 3.4 lime\\antlr3\\Def.g 2016-04-28 15:04:44
 
     package lime.antlr3;
 
@@ -15,7 +14,7 @@ import java.util.HashMap;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class Def extends TreeFilter {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "Action", "Add", "And", "Assert", "Assign", "Attr", "Begin", "Bool", "Booltype", "CBrace", "CBracket", "COMMENT", "CParen", "Class", "Colon", "Comma", "Divide", "Do", "Dot", "Else", "End", "Equals", "Excl", "GT", "GTEquals", "ID", "INT", "If", "Inherit", "Initialization", "Inttype", "LETTER", "LINE_COMMENT", "LT", "LTEquals", "Method", "Modulus", "Multiply", "NEquals", "New", "Null", "OBrace", "OBracket", "OParen", "Or", "Pow", "QMark", "Return", "SColon", "STRING", "Subtract", "Super", "Then", "This", "Var", "Voidtype", "WS", "When", "While", "ACTION", "ARG_DECL", "ASSIGN", "ATTR_DECL", "BLOCK", "CALL", "CLASS", "DOT", "ELIST", "EXPR", "FILE", "IF", "INHERIT", "INIT", "MEMBERS", "METHOD", "RETURN", "VAR_DECL", "WHILE", "FIELD_DECL", "METHOD_DECL", "'this'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "Action", "Add", "And", "Assert", "Assign", "Attr", "Begin", "Bool", "Booltype", "CBrace", "CBracket", "COMMENT", "CParen", "Class", "Colon", "Comma", "Divide", "Do", "Dot", "Else", "End", "Equals", "Excl", "GT", "GTEquals", "ID", "INT", "If", "Inherit", "Initialization", "Inttype", "LETTER", "LINE_COMMENT", "LT", "LTEquals", "Method", "Modulus", "Multiply", "NEquals", "New", "Null", "OBrace", "OBracket", "OParen", "Or", "Pow", "QMark", "Return", "SColon", "STRING", "Subtract", "Super", "Then", "This", "Var", "Voidtype", "WS", "When", "While", "ACTION", "ARGS_DECL", "ARG_DECL", "ASSIGN", "ATTR_DECL", "BLOCK", "CALL", "CLASS", "DOT", "ELIST", "EXPR", "FILE", "IF", "INHERIT", "INIT", "MEMBERS", "METHOD", "RETURN", "VAR_DECL", "WHILE", "'this'"
     };
 
     public static final int EOF=-1;
@@ -79,27 +78,26 @@ public class Def extends TreeFilter {
     public static final int When=61;
     public static final int While=62;
     public static final int ACTION=63;
-    public static final int ARG_DECL=64;
-    public static final int ASSIGN=65;
-    public static final int ATTR_DECL=66;
-    public static final int BLOCK=67;
-    public static final int CALL=68;
-    public static final int CLASS=69;
-    public static final int DOT=70;
-    public static final int ELIST=71;
-    public static final int EXPR=72;
-    public static final int FILE=73;
-    public static final int IF=74;
-    public static final int INHERIT=75;
-    public static final int INIT=76;
-    public static final int MEMBERS=77;
-    public static final int METHOD=78;
-    public static final int RETURN=79;
-    public static final int VAR_DECL=80;
-    public static final int WHILE=81;
-    public static final int T__84=84;
-    public static final int FIELD_DECL=82;
-    public static final int METHOD_DECL=83;
+    public static final int ARGS_DECL=64;
+    public static final int ARG_DECL=65;
+    public static final int ASSIGN=66;
+    public static final int ATTR_DECL=67;
+    public static final int BLOCK=68;
+    public static final int CALL=69;
+    public static final int CLASS=70;
+    public static final int DOT=71;
+    public static final int ELIST=72;
+    public static final int EXPR=73;
+    public static final int FILE=74;
+    public static final int IF=75;
+    public static final int INHERIT=76;
+    public static final int INIT=77;
+    public static final int MEMBERS=78;
+    public static final int METHOD=79;
+    public static final int RETURN=80;
+    public static final int VAR_DECL=81;
+    public static final int WHILE=82;
+    public static final int T__83=83;
 
     // delegates
     public TreeFilter[] getDelegates() {
@@ -131,38 +129,43 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "topdown"
-    // lime\\antlr3\\Def.g:23:1: topdown : ( enterBlock | enterMethod | enterClass | varDeclaration | atoms );
+    // lime\\antlr3\\Def.g:22:1: topdown : ( enterBlock | enterMethod | enterAction | enterClass | varDeclaration | atoms );
     public final void topdown() throws RecognitionException {
         try {
-            // lime\\antlr3\\Def.g:24:5: ( enterBlock | enterMethod | enterClass | varDeclaration | atoms )
-            int alt1=5;
+            // lime\\antlr3\\Def.g:23:5: ( enterBlock | enterMethod | enterAction | enterClass | varDeclaration | atoms )
+            int alt1=6;
             switch ( input.LA(1) ) {
             case BLOCK:
                 {
                 alt1=1;
                 }
                 break;
-            case METHOD_DECL:
+            case METHOD:
                 {
                 alt1=2;
                 }
                 break;
-            case CLASS:
+            case ACTION:
                 {
                 alt1=3;
                 }
                 break;
-            case ARG_DECL:
-            case VAR_DECL:
-            case FIELD_DECL:
+            case CLASS:
                 {
                 alt1=4;
                 }
                 break;
-            case ID:
-            case 84:
+            case ARG_DECL:
+            case ATTR_DECL:
+            case VAR_DECL:
                 {
                 alt1=5;
+                }
+                break;
+            case ID:
+            case 83:
+                {
+                alt1=6;
                 }
                 break;
             default:
@@ -176,7 +179,7 @@ public class Def extends TreeFilter {
 
             switch (alt1) {
                 case 1 :
-                    // lime\\antlr3\\Def.g:24:9: enterBlock
+                    // lime\\antlr3\\Def.g:23:9: enterBlock
                     {
                     pushFollow(FOLLOW_enterBlock_in_topdown61);
                     enterBlock();
@@ -187,7 +190,7 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 2 :
-                    // lime\\antlr3\\Def.g:25:9: enterMethod
+                    // lime\\antlr3\\Def.g:24:9: enterMethod
                     {
                     pushFollow(FOLLOW_enterMethod_in_topdown71);
                     enterMethod();
@@ -198,10 +201,10 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 3 :
-                    // lime\\antlr3\\Def.g:26:9: enterClass
+                    // lime\\antlr3\\Def.g:25:4: enterAction
                     {
-                    pushFollow(FOLLOW_enterClass_in_topdown81);
-                    enterClass();
+                    pushFollow(FOLLOW_enterAction_in_topdown76);
+                    enterAction();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -209,10 +212,10 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 4 :
-                    // lime\\antlr3\\Def.g:27:9: varDeclaration
+                    // lime\\antlr3\\Def.g:26:9: enterClass
                     {
-                    pushFollow(FOLLOW_varDeclaration_in_topdown91);
-                    varDeclaration();
+                    pushFollow(FOLLOW_enterClass_in_topdown86);
+                    enterClass();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -220,9 +223,20 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 5 :
+                    // lime\\antlr3\\Def.g:27:9: varDeclaration
+                    {
+                    pushFollow(FOLLOW_varDeclaration_in_topdown96);
+                    varDeclaration();
+
+                    state._fsp--;
+                    if (state.failed) return ;
+
+                    }
+                    break;
+                case 6 :
                     // lime\\antlr3\\Def.g:28:9: atoms
                     {
-                    pushFollow(FOLLOW_atoms_in_topdown101);
+                    pushFollow(FOLLOW_atoms_in_topdown106);
                     atoms();
 
                     state._fsp--;
@@ -248,25 +262,30 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "bottomup"
-    // lime\\antlr3\\Def.g:31:1: bottomup : ( exitBlock | exitMethod | exitClass );
+    // lime\\antlr3\\Def.g:31:1: bottomup : ( exitBlock | exitMethod | exitAction | exitClass );
     public final void bottomup() throws RecognitionException {
         try {
-            // lime\\antlr3\\Def.g:32:5: ( exitBlock | exitMethod | exitClass )
-            int alt2=3;
+            // lime\\antlr3\\Def.g:32:5: ( exitBlock | exitMethod | exitAction | exitClass )
+            int alt2=4;
             switch ( input.LA(1) ) {
             case BLOCK:
                 {
                 alt2=1;
                 }
                 break;
-            case METHOD_DECL:
+            case METHOD:
                 {
                 alt2=2;
                 }
                 break;
-            case CLASS:
+            case ACTION:
                 {
                 alt2=3;
+                }
+                break;
+            case CLASS:
+                {
+                alt2=4;
                 }
                 break;
             default:
@@ -282,7 +301,7 @@ public class Def extends TreeFilter {
                 case 1 :
                     // lime\\antlr3\\Def.g:32:9: exitBlock
                     {
-                    pushFollow(FOLLOW_exitBlock_in_bottomup120);
+                    pushFollow(FOLLOW_exitBlock_in_bottomup125);
                     exitBlock();
 
                     state._fsp--;
@@ -293,7 +312,7 @@ public class Def extends TreeFilter {
                 case 2 :
                     // lime\\antlr3\\Def.g:33:9: exitMethod
                     {
-                    pushFollow(FOLLOW_exitMethod_in_bottomup130);
+                    pushFollow(FOLLOW_exitMethod_in_bottomup135);
                     exitMethod();
 
                     state._fsp--;
@@ -302,9 +321,20 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 3 :
-                    // lime\\antlr3\\Def.g:34:9: exitClass
+                    // lime\\antlr3\\Def.g:34:4: exitAction
                     {
-                    pushFollow(FOLLOW_exitClass_in_bottomup140);
+                    pushFollow(FOLLOW_exitAction_in_bottomup140);
+                    exitAction();
+
+                    state._fsp--;
+                    if (state.failed) return ;
+
+                    }
+                    break;
+                case 4 :
+                    // lime\\antlr3\\Def.g:35:9: exitClass
+                    {
+                    pushFollow(FOLLOW_exitClass_in_bottomup150);
                     exitClass();
 
                     state._fsp--;
@@ -330,15 +360,18 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "enterBlock"
-    // lime\\antlr3\\Def.g:39:1: enterBlock : BLOCK ;
+    // lime\\antlr3\\Def.g:40:1: enterBlock : BLOCK ;
     public final void enterBlock() throws RecognitionException {
         try {
-            // lime\\antlr3\\Def.g:40:5: ( BLOCK )
-            // lime\\antlr3\\Def.g:40:9: BLOCK
+            // lime\\antlr3\\Def.g:41:5: ( BLOCK )
+            // lime\\antlr3\\Def.g:41:9: BLOCK
             {
-            match(input,BLOCK,FOLLOW_BLOCK_in_enterBlock162); if (state.failed) return ;
+            match(input,BLOCK,FOLLOW_BLOCK_in_enterBlock172); if (state.failed) return ;
 
-            if ( state.backtracking==1 ) {currentScope = new LocalScope(currentScope);}
+            if ( state.backtracking==1 ) {
+            			currentScope = new LocalScope(currentScope);
+            			System.out.println("enterBlock-----locals: "+currentScope);
+            		}
 
             }
 
@@ -358,16 +391,16 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "exitBlock"
-    // lime\\antlr3\\Def.g:42:1: exitBlock : BLOCK ;
+    // lime\\antlr3\\Def.g:46:1: exitBlock : BLOCK ;
     public final void exitBlock() throws RecognitionException {
         try {
-            // lime\\antlr3\\Def.g:43:5: ( BLOCK )
-            // lime\\antlr3\\Def.g:43:9: BLOCK
+            // lime\\antlr3\\Def.g:47:5: ( BLOCK )
+            // lime\\antlr3\\Def.g:47:9: BLOCK
             {
-            match(input,BLOCK,FOLLOW_BLOCK_in_exitBlock183); if (state.failed) return ;
+            match(input,BLOCK,FOLLOW_BLOCK_in_exitBlock193); if (state.failed) return ;
 
             if ( state.backtracking==1 ) {
-            			System.out.println("locals: "+currentScope);
+            			System.out.println("exitBlock-----locals: "+currentScope);
             			currentScope = currentScope.getEnclosingScope();    // pop scope
                     }
 
@@ -389,25 +422,25 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "enterMethod"
-    // lime\\antlr3\\Def.g:49:1: enterMethod : ^( METHOD_DECL ID type= . ( . )* ) ;
+    // lime\\antlr3\\Def.g:53:1: enterMethod : ^( METHOD ID type= . ( . )* ) ;
     public final void enterMethod() throws RecognitionException {
         LimeAST ID1=null;
         LimeAST type=null;
 
         try {
-            // lime\\antlr3\\Def.g:50:2: ( ^( METHOD_DECL ID type= . ( . )* ) )
-            // lime\\antlr3\\Def.g:50:4: ^( METHOD_DECL ID type= . ( . )* )
+            // lime\\antlr3\\Def.g:54:2: ( ^( METHOD ID type= . ( . )* ) )
+            // lime\\antlr3\\Def.g:54:4: ^( METHOD ID type= . ( . )* )
             {
-            match(input,METHOD_DECL,FOLLOW_METHOD_DECL_in_enterMethod207); if (state.failed) return ;
+            match(input,METHOD,FOLLOW_METHOD_in_enterMethod217); if (state.failed) return ;
 
             match(input, Token.DOWN, null); if (state.failed) return ;
-            ID1=(LimeAST)match(input,ID,FOLLOW_ID_in_enterMethod209); if (state.failed) return ;
+            ID1=(LimeAST)match(input,ID,FOLLOW_ID_in_enterMethod219); if (state.failed) return ;
 
             type=(LimeAST)input.LT(1);
 
             matchAny(input); if (state.failed) return ;
 
-            // lime\\antlr3\\Def.g:50:28: ( . )*
+            // lime\\antlr3\\Def.g:54:23: ( . )*
             loop3:
             do {
                 int alt3=2;
@@ -472,6 +505,7 @@ public class Def extends TreeFilter {
                 case When:
                 case While:
                 case ACTION:
+                case ARGS_DECL:
                 case ARG_DECL:
                 case ASSIGN:
                 case ATTR_DECL:
@@ -490,9 +524,7 @@ public class Def extends TreeFilter {
                 case RETURN:
                 case VAR_DECL:
                 case WHILE:
-                case FIELD_DECL:
-                case METHOD_DECL:
-                case 84:
+                case 83:
                     {
                     alt3=1;
                     }
@@ -507,7 +539,7 @@ public class Def extends TreeFilter {
 
                 switch (alt3) {
             	case 1 :
-            	    // lime\\antlr3\\Def.g:50:28: .
+            	    // lime\\antlr3\\Def.g:54:23: .
             	    {
             	    matchAny(input); if (state.failed) return ;
 
@@ -551,16 +583,16 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "exitMethod"
-    // lime\\antlr3\\Def.g:62:1: exitMethod : METHOD_DECL ;
+    // lime\\antlr3\\Def.g:66:1: exitMethod : METHOD ;
     public final void exitMethod() throws RecognitionException {
         try {
-            // lime\\antlr3\\Def.g:63:2: ( METHOD_DECL )
-            // lime\\antlr3\\Def.g:63:4: METHOD_DECL
+            // lime\\antlr3\\Def.g:67:2: ( METHOD )
+            // lime\\antlr3\\Def.g:67:4: METHOD
             {
-            match(input,METHOD_DECL,FOLLOW_METHOD_DECL_in_exitMethod232); if (state.failed) return ;
+            match(input,METHOD,FOLLOW_METHOD_in_exitMethod242); if (state.failed) return ;
 
             if ( state.backtracking==1 ) {
-            			System.out.println("args: "+currentScope);
+            			System.out.println("exitMethod-----args: "+currentScope);
             			currentScope = currentScope.getEnclosingScope();    // pop method scope
                     }
 
@@ -581,23 +613,209 @@ public class Def extends TreeFilter {
 
 
 
+    // $ANTLR start "enterAction"
+    // lime\\antlr3\\Def.g:72:1: enterAction : ^( ACTION ID ( . )* ) ;
+    public final void enterAction() throws RecognitionException {
+        LimeAST ID2=null;
+
+        try {
+            // lime\\antlr3\\Def.g:73:2: ( ^( ACTION ID ( . )* ) )
+            // lime\\antlr3\\Def.g:73:4: ^( ACTION ID ( . )* )
+            {
+            match(input,ACTION,FOLLOW_ACTION_in_enterAction262); if (state.failed) return ;
+
+            match(input, Token.DOWN, null); if (state.failed) return ;
+            ID2=(LimeAST)match(input,ID,FOLLOW_ID_in_enterAction264); if (state.failed) return ;
+
+            // lime\\antlr3\\Def.g:73:16: ( . )*
+            loop4:
+            do {
+                int alt4=2;
+                switch ( input.LA(1) ) {
+                case Action:
+                case Add:
+                case And:
+                case Assert:
+                case Assign:
+                case Attr:
+                case Begin:
+                case Bool:
+                case Booltype:
+                case CBrace:
+                case CBracket:
+                case COMMENT:
+                case CParen:
+                case Class:
+                case Colon:
+                case Comma:
+                case Divide:
+                case Do:
+                case Dot:
+                case Else:
+                case End:
+                case Equals:
+                case Excl:
+                case GT:
+                case GTEquals:
+                case ID:
+                case INT:
+                case If:
+                case Inherit:
+                case Initialization:
+                case Inttype:
+                case LETTER:
+                case LINE_COMMENT:
+                case LT:
+                case LTEquals:
+                case Method:
+                case Modulus:
+                case Multiply:
+                case NEquals:
+                case New:
+                case Null:
+                case OBrace:
+                case OBracket:
+                case OParen:
+                case Or:
+                case Pow:
+                case QMark:
+                case Return:
+                case SColon:
+                case STRING:
+                case Subtract:
+                case Super:
+                case Then:
+                case This:
+                case Var:
+                case Voidtype:
+                case WS:
+                case When:
+                case While:
+                case ACTION:
+                case ARGS_DECL:
+                case ARG_DECL:
+                case ASSIGN:
+                case ATTR_DECL:
+                case BLOCK:
+                case CALL:
+                case CLASS:
+                case DOT:
+                case ELIST:
+                case EXPR:
+                case FILE:
+                case IF:
+                case INHERIT:
+                case INIT:
+                case MEMBERS:
+                case METHOD:
+                case RETURN:
+                case VAR_DECL:
+                case WHILE:
+                case 83:
+                    {
+                    alt4=1;
+                    }
+                    break;
+                case UP:
+                    {
+                    alt4=2;
+                    }
+                    break;
+
+                }
+
+                switch (alt4) {
+            	case 1 :
+            	    // lime\\antlr3\\Def.g:73:16: .
+            	    {
+            	    matchAny(input); if (state.failed) return ;
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop4;
+                }
+            } while (true);
+
+
+            match(input, Token.UP, null); if (state.failed) return ;
+
+
+            if ( state.backtracking==1 ) {
+            			System.out.println("line "+ID2.getLine()+": def action "+(ID2!=null?ID2.getText():null));
+            			MethodSymbol ms = new MethodSymbol((ID2!=null?ID2.getText():null),null,currentScope);
+            			ms.def = ID2;            // track AST location of def's ID
+            			ID2.symbol = ms;         // track in AST
+            			currentScope.define(ms); // def method in class' scope
+            			currentScope = ms;       // set current scope to action scope
+            		}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return ;
+    }
+    // $ANTLR end "enterAction"
+
+
+
+    // $ANTLR start "exitAction"
+    // lime\\antlr3\\Def.g:83:1: exitAction : ACTION ;
+    public final void exitAction() throws RecognitionException {
+        try {
+            // lime\\antlr3\\Def.g:84:2: ( ACTION )
+            // lime\\antlr3\\Def.g:84:4: ACTION
+            {
+            match(input,ACTION,FOLLOW_ACTION_in_exitAction282); if (state.failed) return ;
+
+            if ( state.backtracking==1 ) {
+            			System.out.println("exitAction-----args: "+currentScope);
+            			currentScope = currentScope.getEnclosingScope();    // pop method scope
+            		}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return ;
+    }
+    // $ANTLR end "exitAction"
+
+
+
     // $ANTLR start "enterClass"
-    // lime\\antlr3\\Def.g:69:1: enterClass : ^( CLASS name= ID ( ^( INHERIT sup= ID ) )? . ) ;
+    // lime\\antlr3\\Def.g:90:1: enterClass : ^( CLASS name= ID ( ^( INHERIT sup= ID ) )? . ) ;
     public final void enterClass() throws RecognitionException {
         LimeAST name=null;
         LimeAST sup=null;
 
         try {
-            // lime\\antlr3\\Def.g:70:5: ( ^( CLASS name= ID ( ^( INHERIT sup= ID ) )? . ) )
-            // lime\\antlr3\\Def.g:70:9: ^( CLASS name= ID ( ^( INHERIT sup= ID ) )? . )
+            // lime\\antlr3\\Def.g:91:5: ( ^( CLASS name= ID ( ^( INHERIT sup= ID ) )? . ) )
+            // lime\\antlr3\\Def.g:91:9: ^( CLASS name= ID ( ^( INHERIT sup= ID ) )? . )
             {
-            match(input,CLASS,FOLLOW_CLASS_in_enterClass258); if (state.failed) return ;
+            match(input,CLASS,FOLLOW_CLASS_in_enterClass302); if (state.failed) return ;
 
             match(input, Token.DOWN, null); if (state.failed) return ;
-            name=(LimeAST)match(input,ID,FOLLOW_ID_in_enterClass262); if (state.failed) return ;
+            name=(LimeAST)match(input,ID,FOLLOW_ID_in_enterClass306); if (state.failed) return ;
 
-            // lime\\antlr3\\Def.g:70:25: ( ^( INHERIT sup= ID ) )?
-            int alt4=2;
+            // lime\\antlr3\\Def.g:91:25: ( ^( INHERIT sup= ID ) )?
+            int alt5=2;
             switch ( input.LA(1) ) {
                 case INHERIT:
                     {
@@ -671,6 +889,7 @@ public class Def extends TreeFilter {
                                                 case When:
                                                 case While:
                                                 case ACTION:
+                                                case ARGS_DECL:
                                                 case ARG_DECL:
                                                 case ASSIGN:
                                                 case ATTR_DECL:
@@ -689,11 +908,9 @@ public class Def extends TreeFilter {
                                                 case RETURN:
                                                 case VAR_DECL:
                                                 case WHILE:
-                                                case FIELD_DECL:
-                                                case METHOD_DECL:
-                                                case 84:
+                                                case 83:
                                                     {
-                                                    alt4=1;
+                                                    alt5=1;
                                                     }
                                                     break;
                                             }
@@ -714,14 +931,14 @@ public class Def extends TreeFilter {
                     break;
             }
 
-            switch (alt4) {
+            switch (alt5) {
                 case 1 :
-                    // lime\\antlr3\\Def.g:70:26: ^( INHERIT sup= ID )
+                    // lime\\antlr3\\Def.g:91:26: ^( INHERIT sup= ID )
                     {
-                    match(input,INHERIT,FOLLOW_INHERIT_in_enterClass266); if (state.failed) return ;
+                    match(input,INHERIT,FOLLOW_INHERIT_in_enterClass310); if (state.failed) return ;
 
                     match(input, Token.DOWN, null); if (state.failed) return ;
-                    sup=(LimeAST)match(input,ID,FOLLOW_ID_in_enterClass270); if (state.failed) return ;
+                    sup=(LimeAST)match(input,ID,FOLLOW_ID_in_enterClass314); if (state.failed) return ;
 
                     match(input, Token.UP, null); if (state.failed) return ;
 
@@ -766,16 +983,16 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "exitClass"
-    // lime\\antlr3\\Def.g:83:1: exitClass : CLASS ;
+    // lime\\antlr3\\Def.g:104:1: exitClass : CLASS ;
     public final void exitClass() throws RecognitionException {
         try {
-            // lime\\antlr3\\Def.g:84:5: ( CLASS )
-            // lime\\antlr3\\Def.g:84:9: CLASS
+            // lime\\antlr3\\Def.g:105:5: ( CLASS )
+            // lime\\antlr3\\Def.g:105:9: CLASS
             {
-            match(input,CLASS,FOLLOW_CLASS_in_exitClass296); if (state.failed) return ;
+            match(input,CLASS,FOLLOW_CLASS_in_exitClass340); if (state.failed) return ;
 
             if ( state.backtracking==1 ) {
-            			System.out.println("members: "+currentScope);
+            			System.out.println("exitClass-----members: "+currentScope);
             			currentScope = currentScope.getEnclosingScope();    // pop scope
                     }
 
@@ -797,31 +1014,65 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "atoms"
-    // lime\\antlr3\\Def.g:92:1: atoms :{...}? ( 'this' | ID ) ;
+    // lime\\antlr3\\Def.g:113:1: atoms :{...}? ( 'this' |name= ID ) ;
     public final void atoms() throws RecognitionException {
+        LimeAST name=null;
+
         LimeAST t = (LimeAST)input.LT(1);
         try {
-            // lime\\antlr3\\Def.g:94:5: ({...}? ( 'this' | ID ) )
-            // lime\\antlr3\\Def.g:94:8: {...}? ( 'this' | ID )
+            // lime\\antlr3\\Def.g:115:5: ({...}? ( 'this' |name= ID ) )
+            // lime\\antlr3\\Def.g:115:8: {...}? ( 'this' |name= ID )
             {
             if ( !((t.hasAncestor(EXPR)||t.hasAncestor(ASSIGN))) ) {
                 if (state.backtracking>0) {state.failed=true; return ;}
                 throw new FailedPredicateException(input, "atoms", "t.hasAncestor(EXPR)||t.hasAncestor(ASSIGN)");
             }
 
-            if ( input.LA(1)==ID||input.LA(1)==84 ) {
-                input.consume();
-                state.errorRecovery=false;
-                state.failed=false;
-            }
-            else {
+            // lime\\antlr3\\Def.g:115:54: ( 'this' |name= ID )
+            int alt6=2;
+            switch ( input.LA(1) ) {
+            case 83:
+                {
+                alt6=1;
+                }
+                break;
+            case ID:
+                {
+                alt6=2;
+                }
+                break;
+            default:
                 if (state.backtracking>0) {state.failed=true; return ;}
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                throw mse;
+                NoViableAltException nvae =
+                    new NoViableAltException("", 6, 0, input);
+
+                throw nvae;
+
+            }
+
+            switch (alt6) {
+                case 1 :
+                    // lime\\antlr3\\Def.g:115:55: 'this'
+                    {
+                    match(input,83,FOLLOW_83_in_atoms378); if (state.failed) return ;
+
+                    }
+                    break;
+                case 2 :
+                    // lime\\antlr3\\Def.g:115:63: name= ID
+                    {
+                    name=(LimeAST)match(input,ID,FOLLOW_ID_in_atoms383); if (state.failed) return ;
+
+                    }
+                    break;
+
             }
 
 
-            if ( state.backtracking==1 ) {t.scope = currentScope;}
+            if ( state.backtracking==1 ) {
+            			System.out.println("atoms "+name.getLine()+" " +(name!=null?name.getText():null));
+            			t.scope = currentScope;
+            		}
 
             }
 
@@ -841,16 +1092,16 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "varDeclaration"
-    // lime\\antlr3\\Def.g:100:1: varDeclaration : ^( ( FIELD_DECL | VAR_DECL | ARG_DECL ) type= . ID ( . )? ) ;
+    // lime\\antlr3\\Def.g:124:1: varDeclaration : ^( ( ATTR_DECL | VAR_DECL | ARG_DECL ) type= . ID ( . )? ) ;
     public final void varDeclaration() throws RecognitionException {
-        LimeAST ID2=null;
+        LimeAST ID3=null;
         LimeAST type=null;
 
         try {
-            // lime\\antlr3\\Def.g:101:5: ( ^( ( FIELD_DECL | VAR_DECL | ARG_DECL ) type= . ID ( . )? ) )
-            // lime\\antlr3\\Def.g:101:9: ^( ( FIELD_DECL | VAR_DECL | ARG_DECL ) type= . ID ( . )? )
+            // lime\\antlr3\\Def.g:125:5: ( ^( ( ATTR_DECL | VAR_DECL | ARG_DECL ) type= . ID ( . )? ) )
+            // lime\\antlr3\\Def.g:125:9: ^( ( ATTR_DECL | VAR_DECL | ARG_DECL ) type= . ID ( . )? )
             {
-            if ( input.LA(1)==ARG_DECL||input.LA(1)==VAR_DECL||input.LA(1)==FIELD_DECL ) {
+            if ( input.LA(1)==ARG_DECL||input.LA(1)==ATTR_DECL||input.LA(1)==VAR_DECL ) {
                 input.consume();
                 state.errorRecovery=false;
                 state.failed=false;
@@ -867,10 +1118,10 @@ public class Def extends TreeFilter {
 
             matchAny(input); if (state.failed) return ;
 
-            ID2=(LimeAST)match(input,ID,FOLLOW_ID_in_varDeclaration387); if (state.failed) return ;
+            ID3=(LimeAST)match(input,ID,FOLLOW_ID_in_varDeclaration434); if (state.failed) return ;
 
-            // lime\\antlr3\\Def.g:101:58: ( . )?
-            int alt5=2;
+            // lime\\antlr3\\Def.g:125:57: ( . )?
+            int alt7=2;
             switch ( input.LA(1) ) {
                 case Action:
                 case Add:
@@ -932,6 +1183,7 @@ public class Def extends TreeFilter {
                 case When:
                 case While:
                 case ACTION:
+                case ARGS_DECL:
                 case ARG_DECL:
                 case ASSIGN:
                 case ATTR_DECL:
@@ -950,18 +1202,16 @@ public class Def extends TreeFilter {
                 case RETURN:
                 case VAR_DECL:
                 case WHILE:
-                case FIELD_DECL:
-                case METHOD_DECL:
-                case 84:
+                case 83:
                     {
-                    alt5=1;
+                    alt7=1;
                     }
                     break;
             }
 
-            switch (alt5) {
+            switch (alt7) {
                 case 1 :
-                    // lime\\antlr3\\Def.g:101:58: .
+                    // lime\\antlr3\\Def.g:125:57: .
                     {
                     matchAny(input); if (state.failed) return ;
 
@@ -975,11 +1225,11 @@ public class Def extends TreeFilter {
 
 
             if ( state.backtracking==1 ) {
-            			System.out.println("line "+ID2.getLine()+": def "+(ID2!=null?ID2.getText():null));
+            			System.out.println("var declaration: line "+ID3.getLine()+": def "+(ID3!=null?ID3.getText():null));
             			type.scope = currentScope;
-            			VariableSymbol vs = new VariableSymbol((ID2!=null?ID2.getText():null),null);
-            			vs.def = ID2;            // track AST location of def's ID
-            			ID2.symbol = vs;         // track in AST
+            			VariableSymbol vs = new VariableSymbol((ID3!=null?ID3.getText():null),null);
+            			vs.def = ID3;            // track AST location of def's ID
+            			ID3.symbol = vs;         // track in AST
             			currentScope.define(vs);
             		}
 
@@ -1005,24 +1255,30 @@ public class Def extends TreeFilter {
 
     public static final BitSet FOLLOW_enterBlock_in_topdown61 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_enterMethod_in_topdown71 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_enterClass_in_topdown81 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_varDeclaration_in_topdown91 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_atoms_in_topdown101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_exitBlock_in_bottomup120 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_exitMethod_in_bottomup130 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_exitClass_in_bottomup140 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BLOCK_in_enterBlock162 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BLOCK_in_exitBlock183 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_METHOD_DECL_in_enterMethod207 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_ID_in_enterMethod209 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x00000000001FFFFFL});
-    public static final BitSet FOLLOW_METHOD_DECL_in_exitMethod232 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CLASS_in_enterClass258 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_ID_in_enterClass262 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x00000000001FFFFFL});
-    public static final BitSet FOLLOW_INHERIT_in_enterClass266 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_ID_in_enterClass270 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_CLASS_in_exitClass296 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_atoms333 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_varDeclaration369 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_ID_in_varDeclaration387 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF8L,0x00000000001FFFFFL});
+    public static final BitSet FOLLOW_enterAction_in_topdown76 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_enterClass_in_topdown86 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_varDeclaration_in_topdown96 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_atoms_in_topdown106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_exitBlock_in_bottomup125 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_exitMethod_in_bottomup135 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_exitAction_in_bottomup140 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_exitClass_in_bottomup150 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BLOCK_in_enterBlock172 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BLOCK_in_exitBlock193 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_METHOD_in_enterMethod217 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_ID_in_enterMethod219 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x00000000000FFFFFL});
+    public static final BitSet FOLLOW_METHOD_in_exitMethod242 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ACTION_in_enterAction262 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_ID_in_enterAction264 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF8L,0x00000000000FFFFFL});
+    public static final BitSet FOLLOW_ACTION_in_exitAction282 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CLASS_in_enterClass302 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_ID_in_enterClass306 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x00000000000FFFFFL});
+    public static final BitSet FOLLOW_INHERIT_in_enterClass310 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_ID_in_enterClass314 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_CLASS_in_exitClass340 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_83_in_atoms378 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_atoms383 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_varDeclaration416 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_ID_in_varDeclaration434 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF8L,0x00000000000FFFFFL});
 
 }

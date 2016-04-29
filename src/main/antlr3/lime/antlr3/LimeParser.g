@@ -7,7 +7,7 @@ options {
 }
 
 tokens {
-  FILE; CLASS; MEMBERS; INHERIT; ATTR_DECL; INIT; METHOD; ACTION; ARG_DECL;
+  FILE; CLASS; MEMBERS; INHERIT; ATTR_DECL; INIT; METHOD; ACTION; ARG_DECL; ARGS_DECL;
   BLOCK; VAR_DECL; ASSIGN; EXPR; RETURN; IF; WHILE; CALL; DOT; ELIST; 
 }
 
@@ -19,7 +19,7 @@ tokens {
 // This is just a simple parser for demo purpose
 //
 compilationUnit
-    :   ( classDefinition )+ EOF -> ^(FILE classDefinition+ )
+    :	( classDefinition )+ EOF -> ^(FILE classDefinition+ )
 	;
 	
 classDefinition
@@ -32,32 +32,36 @@ superClass
 	;
 
 classMember
-	: attrDeclaration
-	| init
-	| methodDeclaration
-	| actionDeclaration
+	:	attrDeclaration
+	|	init
+	|	methodDeclaration
+	|	actionDeclaration
 	;
 	
 attrDeclaration
-	: Attr type ID (Assign expression)?  -> ^(ATTR_DECL type ID expression?)
+	:	Attr type ID-> ^(ATTR_DECL type ID )
 	;
 	
 init
-	: Initialization OParen formalParameters? CParen block ->^(INIT formalParameters? block)
+	:	Initialization OParen parameterlist? CParen block ->^(INIT parameterlist? block)
 	;
 	
 methodDeclaration
-	: Method ID OParen formalParameters? CParen type (When expression Do)? block 
-	-> ^(METHOD ID formalParameters? type expression? block )
+	:	Method ID OParen parameterlist? CParen type (When expression Do)? block 
+	-> ^(METHOD ID parameterlist? type expression? block )
 	;
 	
 actionDeclaration
-	: Action ID (When expression Do)? block -> ^(ACTION ID expression? block)
+	:	Action ID (When expression Do)? block -> ^(ACTION ID expression? block)
 	;
 	
-formalParameters
-    :   type ID (Comma type ID)* -> ^(ARG_DECL type ID)+
+parameterlist
+    :	parameterdecl (Comma parameterdecl)* -> ^(ARGS_DECL parameterdecl+)
     ;
+	
+parameterdecl
+	:	type ID -> ^(ARG_DECL type ID)
+	;
 	
 type
 	:	Inttype
@@ -118,9 +122,9 @@ multiplicative_expression
 postfixExpression
     :   (primary->primary)
     	(	options {backtrack=true;}
-		:	Dot ID OParen expressionList CParen -> ^(CALL ^(DOT $postfixExpression ID))
+		:	Dot ID OParen expressionList CParen -> ^(CALL ^(DOT $postfixExpression ID) expressionList)
 		|	Dot ID						  -> ^(DOT $postfixExpression ID)
-		|	OParen expressionList CParen        -> ^(CALL $postfixExpression)
+		|	OParen expressionList CParen        -> ^(CALL $postfixExpression expressionList)
 		)*
     ;
 // END: call

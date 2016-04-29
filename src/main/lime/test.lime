@@ -1,13 +1,16 @@
 class M {
 	attr int a
-	init (a : int) a = 0 end
-	method add1 when a==0 do  {
-		a = a + 1
+	init (int a) {
+		a = 0 ;
+	}
+	method add1() void when a==0 do  {
+		int i;
+		a = a + 1;
 	}
 	action add2 when a==1 do  {
-		a = a + 2 
+		a = a + 2;
 	}
-	action add3 when a==3 do  {}
-		a = a + 3 
+	action add3 when a==3 do  {
+		a = a + 3; 
 	}
 }

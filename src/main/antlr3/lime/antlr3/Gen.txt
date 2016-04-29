@@ -1,0 +1,108 @@
+tree grammar Gen;
+
+options {
+    tokenVocab=LimeParser;
+    ASTLabelType=LimeAST;
+    output=template;
+}
+
+@header {
+    package lime.antlr3;
+}
+
+@members {
+    SymbolTable symtab;
+    Scope currentScope;
+    public Gen(TreeNodeStream input, SymbolTable symtab) {
+        this(input);
+        this.symtab = symtab;
+        currentScope = symtab.globals;
+    }
+
+    int reg = 1;
+    public int getreg() { return reg++; }
+
+    List<LimeString> strings = new ArrayList<LimeString>();
+    public int getstr(String s) {
+    	strings.add(new LimeString(s));
+    	return strings.size();
+    }
+}
+
+translationunit
+	:	^(FILE d+=classDefinition+) 
+		-> file(decls={$d}, strings={strings})
+	;
+
+classDefinition
+	:	methodDeclaration	-> {$methodDeclaration.st}
+	;
+
+methodDeclaration
+	:	^(	METHOD ID type 
+			(^(ARGS p+=parameterDeclaration+) )?
+		 	compound_statement
+		 )
+		 -> def_func(sym={$ID.symbol}, args={$p},
+		 			 block={$compound_statement.st})
+	;
+
+declaration
+@after {$st.setAttribute("descr", $text);}
+	:	^(VARDEF ID type)
+		-> def_var(id={$ID.text}, type={$type.text})
+	;
+
+
+type
+	: 	Inttype
+    |	Voidtype
+	;
+
+parameterDeclaration
+//@after { System.out.println("arg: "+$st); }
+	:	^(ARG ID type)
+		-> def_arg(id={$ID.text}, type={$type.text})
+	;
+
+statement
+@after {$st.setAttribute("descr", $text.replaceAll("\\n"," "));}
+	:	compound_statement
+	|	^(ASSIGN ID expression) -> assign(id={$ID.text}, rhs={$expression.st})
+	|	^(RETURN expression) -> return(v={$expression.st})
+	|	^(IF expression s1=statement s2=statement?)
+		-> if(cond={$expression.st}, stat1={$s1.st}, stat2={$s2.st}, tmp={getreg()})
+	|	^(WHILE expression s=statement)
+		-> while(cond={$expression.st}, stat={$s.st}, tmp={getreg()})
+	;
+
+compound_statement
+	:	^(BLOCK  s+=statement+) -> block( stats={$s})
+	;
+
+	
+expression returns [Type type]
+@after {
+//System.out.println("expr: "+$st);
+}
+	:	^((Equals| LT | GT | GTEquals | LTEquals | Add | Subtract  | Multiply | Divide) a=expression b=expression)
+		-> bop(reg={getreg()}, op={$start.token}, a={$a.st}, b={$b.st})
+	| call {$call.st.setAttribute("descr", $text);} 
+		-> {$call.st}
+	| primary {$type=$primary.type;}
+		-> {$primary.st}
+	;
+
+call
+	: ^(CALL ID (^(ELIST e+=expression+))?)
+		-> call(reg={getreg()}, sym={$ID.symbol}, args={$e})
+	;
+
+primary returns [Type type]
+	: ID {$type = $ID.symbol.type;}
+		-> load_var (reg={getreg()}, id= {$ID})
+	| INT {$type = (Type)symtab.globals.resolve("int");}
+		-> int (reg={getreg()}, v={$INT.text} )
+	;
+
+

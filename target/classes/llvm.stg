@@ -1,0 +1,46 @@
+group llvm;
+
+opToInstr ::= [ // map operators to LLVM IR instructions
+        "+":"add",
+        "-":"sub",
+        "*":"mul",
+        "/":"sdiv",
+        "==":"icmp eq",
+        "!=":"icmp ne",
+        "<":"icmp slt",
+        ">":"icmp sgt",
+        "<=":"icmp sle",
+        ">=":"icmp sge"
+]
+
+llvmType ::= [ "int":"i32", "void":"void" ]
+
+
+file(decls, strings) ::= <<
+declare i32 @printf(i8 *, ...)
+<decls; separator="\n">
+>>
+
+classdeclaration(sym, member)  ::= <<
+declare classlkjlk;k;kkkkkllllllll
+<sym>
+<member>
+>>
+
+attrdecl(sym) ::=<<
+this is attr decl \n
+>>
+
+init() ::=<<
+this is init \n
+>>
+
+method(sym) ::=<<
+this  is method \n
+>>
+
+action(sym) ::=<<
+this  is action \n
+>>
+
+

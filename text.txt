@@ -1,0 +1,170 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ANTLR3 project: lime.antlr3 0.1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] >>> exec-maven-plugin:1.2.1:java (default-cli) > validate @ lime >>>
+[INFO] 
+[INFO] <<< exec-maven-plugin:1.2.1:java (default-cli) < validate @ lime <<<
+[INFO] 
+[INFO] --- exec-maven-plugin:1.2.1:java (default-cli) @ lime ---
+; (FILE (CLASS M (MEMBERS (ATTR_DECL int a) (INIT (ARG_DECL int a) (BLOCK (ASSIGN a 0))) (METHOD add1 void (== a 0) (BLOCK (ASSIGN a (+ a 1)))) (ACTION add2 (== a 1) (BLOCK (ASSIGN a (+ a 2)))) (ACTION add3 (== a 3) (BLOCK (ASSIGN a (+ a 3)))))))
+digraph {
+
+	ordering=out;
+	ranksep=.4;
+	bgcolor="lightgrey"; node [shape=box, fixedsize=false, fontsize=12, fontname="Helvetica-bold", fontcolor="blue"
+		width=.25, height=.25, color="black", fillcolor="white", style="filled, solid, bold"];
+	edge [arrowsize=.5, color="black", style="bold"]
+
+  n0 [label="FILE"];
+  n1 [label="CLASS"];
+  n1 [label="CLASS"];
+  n2 [label="M"];
+  n3 [label="MEMBERS"];
+  n3 [label="MEMBERS"];
+  n4 [label="ATTR_DECL"];
+  n4 [label="ATTR_DECL"];
+  n5 [label="int"];
+  n6 [label="a"];
+  n7 [label="INIT"];
+  n7 [label="INIT"];
+  n8 [label="ARG_DECL"];
+  n8 [label="ARG_DECL"];
+  n9 [label="int"];
+  n10 [label="a"];
+  n11 [label="BLOCK"];
+  n11 [label="BLOCK"];
+  n12 [label="ASSIGN"];
+  n12 [label="ASSIGN"];
+  n13 [label="a"];
+  n14 [label="0"];
+  n15 [label="METHOD"];
+  n15 [label="METHOD"];
+  n16 [label="add1"];
+  n17 [label="void"];
+  n18 [label="=="];
+  n18 [label="=="];
+  n19 [label="a"];
+  n20 [label="0"];
+  n21 [label="BLOCK"];
+  n21 [label="BLOCK"];
+  n22 [label="ASSIGN"];
+  n22 [label="ASSIGN"];
+  n23 [label="a"];
+  n24 [label="+"];
+  n24 [label="+"];
+  n25 [label="a"];
+  n26 [label="1"];
+  n27 [label="ACTION"];
+  n27 [label="ACTION"];
+  n28 [label="add2"];
+  n29 [label="=="];
+  n29 [label="=="];
+  n30 [label="a"];
+  n31 [label="1"];
+  n32 [label="BLOCK"];
+  n32 [label="BLOCK"];
+  n33 [label="ASSIGN"];
+  n33 [label="ASSIGN"];
+  n34 [label="a"];
+  n35 [label="+"];
+  n35 [label="+"];
+  n36 [label="a"];
+  n37 [label="2"];
+  n38 [label="ACTION"];
+  n38 [label="ACTION"];
+  n39 [label="add3"];
+  n40 [label="=="];
+  n40 [label="=="];
+  n41 [label="a"];
+  n42 [label="3"];
+  n43 [label="BLOCK"];
+  n43 [label="BLOCK"];
+  n44 [label="ASSIGN"];
+  n44 [label="ASSIGN"];
+  n45 [label="a"];
+  n46 [label="+"];
+  n46 [label="+"];
+  n47 [label="a"];
+  n48 [label="3"];
+
+  n0 -> n1 // "FILE" -> "CLASS"
+  n1 -> n2 // "CLASS" -> "M"
+  n1 -> n3 // "CLASS" -> "MEMBERS"
+  n3 -> n4 // "MEMBERS" -> "ATTR_DECL"
+  n4 -> n5 // "ATTR_DECL" -> "int"
+  n4 -> n6 // "ATTR_DECL" -> "a"
+  n3 -> n7 // "MEMBERS" -> "INIT"
+  n7 -> n8 // "INIT" -> "ARG_DECL"
+  n8 -> n9 // "ARG_DECL" -> "int"
+  n8 -> n10 // "ARG_DECL" -> "a"
+  n7 -> n11 // "INIT" -> "BLOCK"
+  n11 -> n12 // "BLOCK" -> "ASSIGN"
+  n12 -> n13 // "ASSIGN" -> "a"
+  n12 -> n14 // "ASSIGN" -> "0"
+  n3 -> n15 // "MEMBERS" -> "METHOD"
+  n15 -> n16 // "METHOD" -> "add1"
+  n15 -> n17 // "METHOD" -> "void"
+  n15 -> n18 // "METHOD" -> "=="
+  n18 -> n19 // "==" -> "a"
+  n18 -> n20 // "==" -> "0"
+  n15 -> n21 // "METHOD" -> "BLOCK"
+  n21 -> n22 // "BLOCK" -> "ASSIGN"
+  n22 -> n23 // "ASSIGN" -> "a"
+  n22 -> n24 // "ASSIGN" -> "+"
+  n24 -> n25 // "+" -> "a"
+  n24 -> n26 // "+" -> "1"
+  n3 -> n27 // "MEMBERS" -> "ACTION"
+  n27 -> n28 // "ACTION" -> "add2"
+  n27 -> n29 // "ACTION" -> "=="
+  n29 -> n30 // "==" -> "a"
+  n29 -> n31 // "==" -> "1"
+  n27 -> n32 // "ACTION" -> "BLOCK"
+  n32 -> n33 // "BLOCK" -> "ASSIGN"
+  n33 -> n34 // "ASSIGN" -> "a"
+  n33 -> n35 // "ASSIGN" -> "+"
+  n35 -> n36 // "+" -> "a"
+  n35 -> n37 // "+" -> "2"
+  n3 -> n38 // "MEMBERS" -> "ACTION"
+  n38 -> n39 // "ACTION" -> "add3"
+  n38 -> n40 // "ACTION" -> "=="
+  n40 -> n41 // "==" -> "a"
+  n40 -> n42 // "==" -> "3"
+  n38 -> n43 // "ACTION" -> "BLOCK"
+  n43 -> n44 // "BLOCK" -> "ASSIGN"
+  n44 -> n45 // "ASSIGN" -> "a"
+  n44 -> n46 // "ASSIGN" -> "+"
+  n46 -> n47 // "+" -> "a"
+  n46 -> n48 // "+" -> "3"
+
+}
+
+[WARNING] 
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.codehaus.mojo.exec.ExecJavaMojo$1.run(ExecJavaMojo.java:297)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at java.io.Reader.<init>(Reader.java:78)
+	at java.io.InputStreamReader.<init>(InputStreamReader.java:72)
+	at lime.antlr3.Main.main(Main.java:64)
+	... 6 more
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 0.661 s
+[INFO] Finished at: 2016-04-25T15:46:40-04:00
+[INFO] Final Memory: 8M/243M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.2.1:java (default-cli) on project lime: An exception occured while executing the Java class. null: InvocationTargetException: NullPointerException -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

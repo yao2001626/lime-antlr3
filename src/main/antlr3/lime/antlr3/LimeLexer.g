@@ -61,7 +61,7 @@ CBracket : ']';
 OParen   : '(';
 CParen   : ')';
 SColon   : ';';
-Assign   : '=';
+Assign   : ':=';
 Comma    : ',';
 QMark    : '?';
 Colon    : ':';

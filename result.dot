@@ -1,0 +1,140 @@
+digraph {
+
+	ordering=out;
+	ranksep=.4;
+	bgcolor="lightgrey"; node [shape=box, fixedsize=false, fontsize=12, fontname="Helvetica-bold", fontcolor="blue"
+		width=.25, height=.25, color="black", fillcolor="white", style="filled, solid, bold"];
+	edge [arrowsize=.5, color="black", style="bold"]
+
+  n0 [label="FILE"];
+  n1 [label="CLASS"];
+  n1 [label="CLASS"];
+  n2 [label="M"];
+  n3 [label="MEMBERS"];
+  n3 [label="MEMBERS"];
+  n4 [label="ATTR_DECL"];
+  n4 [label="ATTR_DECL"];
+  n5 [label="int"];
+  n6 [label="a"];
+  n7 [label="INIT"];
+  n7 [label="INIT"];
+  n8 [label="ARGS_DECL"];
+  n8 [label="ARGS_DECL"];
+  n9 [label="ARG_DECL"];
+  n9 [label="ARG_DECL"];
+  n10 [label="a"];
+  n11 [label="int"];
+  n12 [label="BLOCK"];
+  n12 [label="BLOCK"];
+  n13 [label="ASSIGN"];
+  n13 [label="ASSIGN"];
+  n14 [label="a"];
+  n15 [label="0"];
+  n16 [label="METHOD"];
+  n16 [label="METHOD"];
+  n17 [label="add1"];
+  n18 [label="void"];
+  n19 [label="=="];
+  n19 [label="=="];
+  n20 [label="a"];
+  n21 [label="0"];
+  n22 [label="BLOCK"];
+  n22 [label="BLOCK"];
+  n23 [label="VAR_DECL"];
+  n23 [label="VAR_DECL"];
+  n24 [label="int"];
+  n25 [label="i"];
+  n26 [label="ASSIGN"];
+  n26 [label="ASSIGN"];
+  n27 [label="a"];
+  n28 [label="+"];
+  n28 [label="+"];
+  n29 [label="a"];
+  n30 [label="1"];
+  n31 [label="ACTION"];
+  n31 [label="ACTION"];
+  n32 [label="add2"];
+  n33 [label="=="];
+  n33 [label="=="];
+  n34 [label="a"];
+  n35 [label="1"];
+  n36 [label="BLOCK"];
+  n36 [label="BLOCK"];
+  n37 [label="ASSIGN"];
+  n37 [label="ASSIGN"];
+  n38 [label="a"];
+  n39 [label="+"];
+  n39 [label="+"];
+  n40 [label="a"];
+  n41 [label="2"];
+  n42 [label="ACTION"];
+  n42 [label="ACTION"];
+  n43 [label="add3"];
+  n44 [label="=="];
+  n44 [label="=="];
+  n45 [label="a"];
+  n46 [label="3"];
+  n47 [label="BLOCK"];
+  n47 [label="BLOCK"];
+  n48 [label="ASSIGN"];
+  n48 [label="ASSIGN"];
+  n49 [label="a"];
+  n50 [label="+"];
+  n50 [label="+"];
+  n51 [label="a"];
+  n52 [label="3"];
+
+  n0 -> n1 // "FILE" -> "CLASS"
+  n1 -> n2 // "CLASS" -> "M"
+  n1 -> n3 // "CLASS" -> "MEMBERS"
+  n3 -> n4 // "MEMBERS" -> "ATTR_DECL"
+  n4 -> n5 // "ATTR_DECL" -> "int"
+  n4 -> n6 // "ATTR_DECL" -> "a"
+  n3 -> n7 // "MEMBERS" -> "INIT"
+  n7 -> n8 // "INIT" -> "ARGS_DECL"
+  n8 -> n9 // "ARGS_DECL" -> "ARG_DECL"
+  n9 -> n10 // "ARG_DECL" -> "a"
+  n9 -> n11 // "ARG_DECL" -> "int"
+  n7 -> n12 // "INIT" -> "BLOCK"
+  n12 -> n13 // "BLOCK" -> "ASSIGN"
+  n13 -> n14 // "ASSIGN" -> "a"
+  n13 -> n15 // "ASSIGN" -> "0"
+  n3 -> n16 // "MEMBERS" -> "METHOD"
+  n16 -> n17 // "METHOD" -> "add1"
+  n16 -> n18 // "METHOD" -> "void"
+  n16 -> n19 // "METHOD" -> "=="
+  n19 -> n20 // "==" -> "a"
+  n19 -> n21 // "==" -> "0"
+  n16 -> n22 // "METHOD" -> "BLOCK"
+  n22 -> n23 // "BLOCK" -> "VAR_DECL"
+  n23 -> n24 // "VAR_DECL" -> "int"
+  n23 -> n25 // "VAR_DECL" -> "i"
+  n22 -> n26 // "BLOCK" -> "ASSIGN"
+  n26 -> n27 // "ASSIGN" -> "a"
+  n26 -> n28 // "ASSIGN" -> "+"
+  n28 -> n29 // "+" -> "a"
+  n28 -> n30 // "+" -> "1"
+  n3 -> n31 // "MEMBERS" -> "ACTION"
+  n31 -> n32 // "ACTION" -> "add2"
+  n31 -> n33 // "ACTION" -> "=="
+  n33 -> n34 // "==" -> "a"
+  n33 -> n35 // "==" -> "1"
+  n31 -> n36 // "ACTION" -> "BLOCK"
+  n36 -> n37 // "BLOCK" -> "ASSIGN"
+  n37 -> n38 // "ASSIGN" -> "a"
+  n37 -> n39 // "ASSIGN" -> "+"
+  n39 -> n40 // "+" -> "a"
+  n39 -> n41 // "+" -> "2"
+  n3 -> n42 // "MEMBERS" -> "ACTION"
+  n42 -> n43 // "ACTION" -> "add3"
+  n42 -> n44 // "ACTION" -> "=="
+  n44 -> n45 // "==" -> "a"
+  n44 -> n46 // "==" -> "3"
+  n42 -> n47 // "ACTION" -> "BLOCK"
+  n47 -> n48 // "BLOCK" -> "ASSIGN"
+  n48 -> n49 // "ASSIGN" -> "a"
+  n48 -> n50 // "ASSIGN" -> "+"
+  n50 -> n51 // "+" -> "a"
+  n50 -> n52 // "+" -> "3"
+
+}

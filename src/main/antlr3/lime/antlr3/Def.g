@@ -15,7 +15,6 @@ options {
 }
 
 @header {
-
     package lime.antlr3;
 }
 // END: header
@@ -23,6 +22,7 @@ options {
 topdown
     :   enterBlock
     |   enterMethod
+	|	enterAction
     |   enterClass
     |   varDeclaration
     |   atoms
@@ -31,23 +31,27 @@ topdown
 bottomup
     :   exitBlock
     |   exitMethod
+	|	exitAction
     |   exitClass
     ;
 	
 // S C O P E S
 
 enterBlock
-    :   BLOCK {currentScope = new LocalScope(currentScope);} // push scope
+    :   BLOCK {
+			currentScope = new LocalScope(currentScope);
+			System.out.println("enterBlock-----locals: "+currentScope);
+		} // push scope
     ;
 exitBlock
     :   BLOCK
         {
-			System.out.println("locals: "+currentScope);
+			System.out.println("exitBlock-----locals: "+currentScope);
 			currentScope = currentScope.getEnclosingScope();    // pop scope
         }
     ;
 enterMethod
-	: ^(METHOD_DECL ID type=. .*) // match method subtree with 0-or-more args
+	: ^(METHOD ID type=. .*) // match method subtree with 0-or-more args
 	{
 		System.out.println("line "+$ID.getLine()+": def method "+$ID.text);
 		$type.scope = currentScope;
@@ -60,12 +64,29 @@ enterMethod
 	;
 
 exitMethod
-	:	METHOD_DECL        {
-			System.out.println("args: "+currentScope);
+	:	METHOD        {
+			System.out.println("exitMethod-----args: "+currentScope);
 			currentScope = currentScope.getEnclosingScope();    // pop method scope
         }
 	;
-
+enterAction
+	:	^(ACTION ID .*)
+		{
+			System.out.println("line "+$ID.getLine()+": def action "+$ID.text);
+			MethodSymbol ms = new MethodSymbol($ID.text,null,currentScope);
+			ms.def = $ID;            // track AST location of def's ID
+			$ID.symbol = ms;         // track in AST
+			currentScope.define(ms); // def method in class' scope
+			currentScope = ms;       // set current scope to action scope
+		}
+	;
+exitAction
+	:	ACTION
+		{
+			System.out.println("exitAction-----args: "+currentScope);
+			currentScope = currentScope.getEnclosingScope();    // pop method scope
+		}
+	;
 enterClass
     :   ^(CLASS name=ID (^(INHERIT sup=ID))? .)
 	{ // def class but leave superclass blank until ref phase
@@ -83,7 +104,7 @@ enterClass
 exitClass
     :   CLASS
         {
-			System.out.println("members: "+currentScope);
+			System.out.println("exitClass-----members: "+currentScope);
 			currentScope = currentScope.getEnclosingScope();    // pop scope
         }
     ;
@@ -91,16 +112,19 @@ exitClass
 /** Set scope for any identifiers in expressions or assignments */
 atoms
 @init {LimeAST t = (LimeAST)input.LT(1);}
-    :  {t.hasAncestor(EXPR)||t.hasAncestor(ASSIGN)}? ('this'|ID)
-       {t.scope = currentScope;}
+    :  {t.hasAncestor(EXPR)||t.hasAncestor(ASSIGN)}? ('this'| name=ID)
+       {
+			System.out.println("atoms "+$name.getLine()+" " +$name.text);
+			t.scope = currentScope;
+		}
     ;
 //END: atoms
 
 // START: var
 varDeclaration // parameter, or local variable
-    :   ^(( FIELD_DECL | VAR_DECL | ARG_DECL ) type=. ID .?)
+    :   ^(( ATTR_DECL | VAR_DECL | ARG_DECL ) type=. ID .?)
 		{
-			System.out.println("line "+$ID.getLine()+": def "+$ID.text);
+			System.out.println("var declaration: line "+$ID.getLine()+": def "+$ID.text);
 			$type.scope = currentScope;
 			VariableSymbol vs = new VariableSymbol($ID.text,null);
 			vs.def = $ID;            // track AST location of def's ID
