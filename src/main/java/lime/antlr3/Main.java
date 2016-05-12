@@ -39,7 +39,7 @@ class Main {
 	
 	public static void main(String[] args) throws Exception {
 		String templatesFilename = "llvm.stg";
-		String filename = "src/main/lime/test3.lime";
+		String filename = "src/main/lime/test4.lime";
 		int i = 0;
 		InputStream input = new FileInputStream(filename);
 		LimeLexer lexer = new LimeLexer(new ANTLRInputStream(input));
@@ -48,7 +48,7 @@ class Main {
         parser.setTreeAdaptor(limeTreeAdaptor);
 		LimeParser.compilationUnit_return ret = parser.compilationUnit();
 		CommonTree t = (CommonTree)ret.getTree();
-		System.out.println("; "+t.toStringTree());
+		//System.out.println("; "+t.toStringTree());
 		DOTTreeGenerator dot = new DOTTreeGenerator();
 		System.out.println(dot.toDOT(t));
 		
@@ -68,8 +68,10 @@ class Main {
 		CommonTreeNodeStream nodes = new CommonTreeNodeStream(limeTreeAdaptor, t);
         nodes.setTokenStream(tokens);
 
+		DefRef def = new DefRef(nodes, symtab); // use custom constructor
+        def.downup(t); // trigger symtab actions upon certain subtrees
         // DEFINE/RESOLVE SYMBOLS
-        Def def = new Def(nodes, symtab); // use custom constructor
+        /*Def def = new Def(nodes, symtab); // use custom constructor
         def.downup(t); // trigger symtab actions upon certain subtrees
         System.out.println("globals: "+symtab.globals);
 		
@@ -77,6 +79,8 @@ class Main {
         nodes.reset();
 		Ref ref = new Ref(nodes);               // create Ref phase
         ref.downup(t);
+		*/
+		
         Gen walker = new Gen(nodes, symtab);
         walker.setTemplateLib(templates);
         Gen.translationunit_return ret2 = walker.translationunit();

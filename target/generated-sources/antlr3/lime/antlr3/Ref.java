@@ -1,4 +1,4 @@
-// $ANTLR 3.4 lime\\antlr3\\Ref.g 2016-04-28 15:04:44
+// $ANTLR 3.4 lime\\antlr3\\Ref.g 2016-05-02 00:23:11
 
     package lime.antlr3;
 
@@ -14,7 +14,7 @@ import java.util.HashMap;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class Ref extends TreeFilter {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "Action", "Add", "And", "Assert", "Assign", "Attr", "Begin", "Bool", "Booltype", "CBrace", "CBracket", "COMMENT", "CParen", "Class", "Colon", "Comma", "Divide", "Do", "Dot", "Else", "End", "Equals", "Excl", "GT", "GTEquals", "ID", "INT", "If", "Inherit", "Initialization", "Inttype", "LETTER", "LINE_COMMENT", "LT", "LTEquals", "Method", "Modulus", "Multiply", "NEquals", "New", "Null", "OBrace", "OBracket", "OParen", "Or", "Pow", "QMark", "Return", "SColon", "STRING", "Subtract", "Super", "Then", "This", "Var", "Voidtype", "WS", "When", "While", "ACTION", "ARGS_DECL", "ARG_DECL", "ASSIGN", "ATTR_DECL", "BLOCK", "CALL", "CLASS", "DOT", "ELIST", "EXPR", "FILE", "IF", "INHERIT", "INIT", "MEMBERS", "METHOD", "RETURN", "VAR_DECL", "WHILE", "EXTENDS", "METHOD_DECL", "'='", "'class'", "'this'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "Action", "Add", "And", "Assert", "Assign", "Attr", "Begin", "Bool", "Booltype", "CBrace", "CBracket", "COMMENT", "CParen", "Class", "Colon", "Comma", "Divide", "Do", "Dot", "Else", "End", "Equals", "Excl", "GT", "GTEquals", "ID", "INT", "If", "Inherit", "Initialization", "Inttype", "LETTER", "LINE_COMMENT", "LT", "LTEquals", "Method", "Modulus", "Multiply", "NEquals", "New", "Null", "OBrace", "OBracket", "OParen", "Or", "Pow", "QMark", "Return", "SColon", "STRING", "Subtract", "Super", "Then", "This", "Var", "Voidtype", "WS", "When", "While", "ACTION", "ARG", "ARGS", "ASSIGN", "ATTR", "BLOCK", "CALL", "CLASS", "DOT", "ELIST", "EXPR", "FILE", "IF", "INHERIT", "INIT", "MEMBERS", "METHOD", "RETURN", "VAR", "VAR_DECL", "WHILE", "EXTENDS", "METHOD_DECL", "'='", "'class'", "'this'"
     };
 
     public static final int EOF=-1;
@@ -78,10 +78,10 @@ public class Ref extends TreeFilter {
     public static final int When=61;
     public static final int While=62;
     public static final int ACTION=63;
-    public static final int ARGS_DECL=64;
-    public static final int ARG_DECL=65;
+    public static final int ARG=64;
+    public static final int ARGS=65;
     public static final int ASSIGN=66;
-    public static final int ATTR_DECL=67;
+    public static final int ATTR=67;
     public static final int BLOCK=68;
     public static final int CALL=69;
     public static final int CLASS=70;
@@ -95,13 +95,14 @@ public class Ref extends TreeFilter {
     public static final int MEMBERS=78;
     public static final int METHOD=79;
     public static final int RETURN=80;
-    public static final int VAR_DECL=81;
-    public static final int WHILE=82;
-    public static final int T__85=85;
+    public static final int VAR=81;
+    public static final int VAR_DECL=82;
+    public static final int WHILE=83;
     public static final int T__86=86;
     public static final int T__87=87;
-    public static final int EXTENDS=83;
-    public static final int METHOD_DECL=84;
+    public static final int T__88=88;
+    public static final int EXTENDS=84;
+    public static final int METHOD_DECL=85;
 
     // delegates
     public TreeFilter[] getDelegates() {
@@ -142,19 +143,19 @@ public class Ref extends TreeFilter {
                 alt1=1;
                 }
                 break;
-            case 86:
+            case 87:
                 {
                 alt1=2;
                 }
                 break;
-            case ARG_DECL:
-            case ATTR_DECL:
-            case VAR_DECL:
+            case ARG:
+            case ATTR:
+            case VAR:
                 {
                 alt1=3;
                 }
                 break;
-            case 85:
+            case 86:
                 {
                 alt1=4;
                 }
@@ -256,7 +257,7 @@ public class Ref extends TreeFilter {
             // lime\\antlr3\\Ref.g:36:2: ( ^( 'class' name= ID ( ^( EXTENDS sup= ID ) )? ^( MEMBERS ( . )* ) ) )
             // lime\\antlr3\\Ref.g:36:6: ^( 'class' name= ID ( ^( EXTENDS sup= ID ) )? ^( MEMBERS ( . )* ) )
             {
-            match(input,86,FOLLOW_86_in_enterClass125); if (state.failed) return ;
+            match(input,87,FOLLOW_87_in_enterClass125); if (state.failed) return ;
 
             match(input, Token.DOWN, null); if (state.failed) return ;
             name=(LimeAST)match(input,ID,FOLLOW_ID_in_enterClass129); if (state.failed) return ;
@@ -358,10 +359,10 @@ public class Ref extends TreeFilter {
                     case When:
                     case While:
                     case ACTION:
-                    case ARGS_DECL:
-                    case ARG_DECL:
+                    case ARG:
+                    case ARGS:
                     case ASSIGN:
-                    case ATTR_DECL:
+                    case ATTR:
                     case BLOCK:
                     case CALL:
                     case CLASS:
@@ -375,13 +376,14 @@ public class Ref extends TreeFilter {
                     case MEMBERS:
                     case METHOD:
                     case RETURN:
+                    case VAR:
                     case VAR_DECL:
                     case WHILE:
                     case EXTENDS:
                     case METHOD_DECL:
-                    case 85:
                     case 86:
                     case 87:
+                    case 88:
                         {
                         alt3=1;
                         }
@@ -534,10 +536,10 @@ public class Ref extends TreeFilter {
                 case When:
                 case While:
                 case ACTION:
-                case ARGS_DECL:
-                case ARG_DECL:
+                case ARG:
+                case ARGS:
                 case ASSIGN:
-                case ATTR_DECL:
+                case ATTR:
                 case BLOCK:
                 case CALL:
                 case CLASS:
@@ -551,13 +553,14 @@ public class Ref extends TreeFilter {
                 case MEMBERS:
                 case METHOD:
                 case RETURN:
+                case VAR:
                 case VAR_DECL:
                 case WHILE:
                 case EXTENDS:
                 case METHOD_DECL:
-                case 85:
                 case 86:
                 case 87:
+                case 88:
                     {
                     alt4=1;
                     }
@@ -611,17 +614,17 @@ public class Ref extends TreeFilter {
 
 
     // $ANTLR start "varDeclaration"
-    // lime\\antlr3\\Ref.g:62:1: varDeclaration : ^( ( ATTR_DECL | VAR_DECL | ARG_DECL ) type ID ) ;
+    // lime\\antlr3\\Ref.g:62:1: varDeclaration : ^( ( ATTR | VAR | ARG ) type ID ) ;
     public final void varDeclaration() throws RecognitionException {
         LimeAST ID3=null;
         Ref.type_return type4 =null;
 
 
         try {
-            // lime\\antlr3\\Ref.g:63:2: ( ^( ( ATTR_DECL | VAR_DECL | ARG_DECL ) type ID ) )
-            // lime\\antlr3\\Ref.g:63:6: ^( ( ATTR_DECL | VAR_DECL | ARG_DECL ) type ID )
+            // lime\\antlr3\\Ref.g:63:2: ( ^( ( ATTR | VAR | ARG ) type ID ) )
+            // lime\\antlr3\\Ref.g:63:6: ^( ( ATTR | VAR | ARG ) type ID )
             {
-            if ( input.LA(1)==ARG_DECL||input.LA(1)==ATTR_DECL||input.LA(1)==VAR_DECL ) {
+            if ( input.LA(1)==ARG||input.LA(1)==ATTR||input.LA(1)==VAR ) {
                 input.consume();
                 state.errorRecovery=false;
                 state.failed=false;
@@ -723,7 +726,7 @@ public class Ref extends TreeFilter {
             // lime\\antlr3\\Ref.g:81:13: ( ^( '=' expr expr ) )
             // lime\\antlr3\\Ref.g:81:15: ^( '=' expr expr )
             {
-            match(input,85,FOLLOW_85_in_assignment261); if (state.failed) return ;
+            match(input,86,FOLLOW_86_in_assignment261); if (state.failed) return ;
 
             match(input, Token.DOWN, null); if (state.failed) return ;
             pushFollow(FOLLOW_expr_in_assignment263);
@@ -830,7 +833,7 @@ public class Ref extends TreeFilter {
                 }
                 break;
             case ID:
-            case 87:
+            case 88:
                 {
                 alt5=4;
                 }
@@ -958,7 +961,7 @@ public class Ref extends TreeFilter {
                 alt6=1;
                 }
                 break;
-            case 87:
+            case 88:
                 {
                 alt6=2;
                 }
@@ -989,7 +992,7 @@ public class Ref extends TreeFilter {
                 case 2 :
                     // lime\\antlr3\\Ref.g:99:6: t= 'this'
                     {
-                    t=(LimeAST)match(input,87,FOLLOW_87_in_id397); if (state.failed) return type;
+                    t=(LimeAST)match(input,88,FOLLOW_88_in_id397); if (state.failed) return type;
 
                     if ( state.backtracking==1 ) {type = SymbolTable.getEnclosingClass(t.scope);}
 
@@ -1073,19 +1076,19 @@ public class Ref extends TreeFilter {
     public static final BitSet FOLLOW_varDeclaration_in_topdown83 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_assignment_in_topdown93 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_resolveExpr_in_topdown103 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_86_in_enterClass125 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_ID_in_enterClass129 = new BitSet(new long[]{0x0000000000000000L,0x0000000000084000L});
+    public static final BitSet FOLLOW_87_in_enterClass125 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_ID_in_enterClass129 = new BitSet(new long[]{0x0000000000000000L,0x0000000000104000L});
     public static final BitSet FOLLOW_EXTENDS_in_enterClass133 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_ID_in_enterClass137 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_MEMBERS_in_enterClass143 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_METHOD_DECL_in_enterMethod167 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_type_in_enterMethod169 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_ID_in_enterMethod171 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF8L,0x0000000000FFFFFFL});
+    public static final BitSet FOLLOW_ID_in_enterMethod171 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF8L,0x0000000001FFFFFFL});
     public static final BitSet FOLLOW_set_in_varDeclaration198 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_type_in_varDeclaration206 = new BitSet(new long[]{0x0000000020000000L});
     public static final BitSet FOLLOW_ID_in_varDeclaration208 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_85_in_assignment261 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_assignment263 = new BitSet(new long[]{0x0000000060400020L,0x0000000000800020L});
+    public static final BitSet FOLLOW_86_in_assignment261 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_assignment263 = new BitSet(new long[]{0x0000000060400020L,0x0000000001000020L});
     public static final BitSet FOLLOW_expr_in_assignment265 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_EXPR_in_resolveExpr277 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_resolveExpr279 = new BitSet(new long[]{0x0000000000000008L});
@@ -1093,12 +1096,12 @@ public class Ref extends TreeFilter {
     public static final BitSet FOLLOW_CALL_in_expr314 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr316 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_Add_in_expr328 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr330 = new BitSet(new long[]{0x0000000060400020L,0x0000000000800020L});
+    public static final BitSet FOLLOW_expr_in_expr330 = new BitSet(new long[]{0x0000000060400020L,0x0000000001000020L});
     public static final BitSet FOLLOW_expr_in_expr332 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_id_in_expr343 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_INT_in_expr364 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ID_in_id385 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_87_in_id397 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_88_in_id397 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_Dot_in_member417 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_member421 = new BitSet(new long[]{0x0000000020000000L});
     public static final BitSet FOLLOW_ID_in_member423 = new BitSet(new long[]{0x0000000000000008L});

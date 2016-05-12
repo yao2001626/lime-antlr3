@@ -1,13 +1,13 @@
 parser grammar LimeParser;
 
 options {
-    output    = AST;
+    output= AST;
 	ASTLabelType = LimeAST;
 	tokenVocab = LimeLexer;
 }
 
 tokens {
-  FILE; CLASS; MEMBERS; INHERIT; ATTR_DECL; INIT; METHOD; ACTION; ARG_DECL; ARGS_DECL;
+  FILE; CLASS; MEMBERS; INHERIT; ATTR; VAR; INIT; METHOD; ACTION; ARG; ARGS;
   BLOCK; VAR_DECL; ASSIGN; EXPR; RETURN; IF; WHILE; CALL; DOT; ELIST; 
 }
 
@@ -16,8 +16,6 @@ tokens {
     package lime.antlr3;
 }
 
-// This is just a simple parser for demo purpose
-//
 compilationUnit
     :	( classDefinition )+ EOF -> ^(FILE classDefinition+ )
 	;
@@ -39,28 +37,20 @@ classMember
 	;
 	
 attrDeclaration
-	:	Attr type ID-> ^(ATTR_DECL type ID )
+	:	Attr type declarator[$type.tree]-> ^(ATTR {$declarator.id} declarator )
 	;
 	
 init
-	:	Initialization OParen parameterlist? CParen block ->^(INIT parameterlist? block)
+	:	Initialization OParen parameter_list? CParen block ->^(INIT parameter_list? block)
 	;
 	
 methodDeclaration
-	:	Method ID OParen parameterlist? CParen type (When expression Do)? block 
-	-> ^(METHOD ID parameterlist? type expression? block )
+	:	Method ID OParen parameter_list? CParen type (When expression Do)? block 
+	-> ^(METHOD ID parameter_list? type expression? block )
 	;
 	
 actionDeclaration
 	:	Action ID (When expression Do)? block -> ^(ACTION ID expression? block)
-	;
-	
-parameterlist
-    :	parameterdecl (Comma parameterdecl)* -> ^(ARGS_DECL parameterdecl+)
-    ;
-	
-parameterdecl
-	:	type ID -> ^(ARG_DECL type ID)
 	;
 	
 type
@@ -72,15 +62,30 @@ type
 block
     :   OBrace statement* CBrace -> ^(BLOCK statement*)
     ;
-	
-varDeclaration
-    :   type ID (Assign expression)? SColon -> ^(VAR_DECL type ID expression?)
-    ;
+declaration
+	:	type declarator[$type.tree]
+		-> ^(VAR {$declarator.id} declarator)
+	;
+
+declarator[LimeAST typeAST] returns [CommonTree id]
+	:	ID {$id=new LimeAST($ID);}
+			-> {$typeAST}
+	;
+
+parameter_list
+	:	parameter_declaration (Comma parameter_declaration)*
+		-> ^(ARGS parameter_declaration+)
+	;
+
+parameter_declaration
+	:	type declarator[$type.tree]
+			-> ^(ARG {$declarator.id} declarator)
+	;
 
 statement
 options {backtrack=true;}
     :   block
-    |	varDeclaration
+    |	declaration
     |   postfixExpression // handles function calls like f(i);
         (   Assign expression -> ^(ASSIGN postfixExpression expression)
         |   -> ^(EXPR postfixExpression)
@@ -140,10 +145,10 @@ expressionList
 	:   expression (Comma expression)* -> ^(ELIST expression+)
 	;
 	
-primary
+primary 
     :   This
     |	Super
-    |	ID
+    |	ID 
     |   INT
     |   OParen expression CParen -> expression
     ;

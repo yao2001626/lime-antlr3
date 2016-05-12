@@ -10,8 +10,8 @@ Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\a
 Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\antlr3\LimeParser.g is up to date - build skipped
 Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\antlr3\TTree.g is up to date - build skipped
 Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\antlr3\Ref.g is up to date - build skipped
-Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\antlr3\Def.g is up to date - build skipped
-Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\antlr3\Gen.g is up to date - build skipped
+lime\antlr3\Gen.g
+Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\antlr3\DefRef.g is up to date - build skipped
 [INFO] 
 [INFO] --- antlr3-maven-plugin:3.4:antlr (default) @ lime ---
 [INFO] ANTLR: Processing source directory C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3
@@ -19,15 +19,17 @@ Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\a
 Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\antlr3\LimeParser.g is up to date - build skipped
 Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\antlr3\TTree.g is up to date - build skipped
 Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\antlr3\Ref.g is up to date - build skipped
-Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\antlr3\Def.g is up to date - build skipped
 Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\antlr3\Gen.g is up to date - build skipped
+Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\antlr3\DefRef.g is up to date - build skipped
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ lime ---
 [WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 [INFO] skip non existing resourceDirectory C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ lime ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] Compiling 24 source files to C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\target\classes
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ lime ---
 [WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
@@ -40,6 +42,7 @@ Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\a
 [INFO] No tests to run.
 [INFO] 
 [INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ lime ---
+[INFO] Building jar: C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\target\lime-0.1.jar
 [INFO] 
 [INFO] --- maven-install-plugin:2.4:install (default-install) @ lime ---
 [INFO] Installing C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\target\lime-0.1.jar to C:\Users\shucai\.m2\repository\com\lime\lime\0.1\lime-0.1.jar
@@ -50,7 +53,6 @@ Grammar C:\Users\shucai\Documents\GitHub\lime-antlr3\lime\src\main\antlr3\lime\a
 [INFO] <<< exec-maven-plugin:1.2.1:java (default-cli) < validate @ lime <<<
 [INFO] 
 [INFO] --- exec-maven-plugin:1.2.1:java (default-cli) @ lime ---
-; (FILE (CLASS ReaderWriter (MEMBERS (ATTR_DECL int n) (ATTR_DECL int N) (INIT (ARGS_DECL (ARG_DECL int R)) (BLOCK (ASSIGN n R) (ASSIGN N R))) (METHOD startRead void (> n 0) (BLOCK (ASSIGN n (- n 1)))) (METHOD startWrite void (== n N) (BLOCK (ASSIGN n 0))) (METHOD endRead void (BLOCK (ASSIGN n (+ n 1)))) (METHOD endWrite void (BLOCK (ASSIGN n N))))))
 digraph {
 
 	ordering=out;
@@ -65,187 +67,50 @@ digraph {
   n2 [label="ReaderWriter"];
   n3 [label="MEMBERS"];
   n3 [label="MEMBERS"];
-  n4 [label="ATTR_DECL"];
-  n4 [label="ATTR_DECL"];
-  n5 [label="int"];
-  n6 [label="n"];
-  n7 [label="ATTR_DECL"];
-  n7 [label="ATTR_DECL"];
-  n8 [label="int"];
-  n9 [label="N"];
-  n10 [label="INIT"];
-  n10 [label="INIT"];
-  n11 [label="ARGS_DECL"];
-  n11 [label="ARGS_DECL"];
-  n12 [label="ARG_DECL"];
-  n12 [label="ARG_DECL"];
-  n13 [label="int"];
-  n14 [label="R"];
-  n15 [label="BLOCK"];
-  n15 [label="BLOCK"];
-  n16 [label="ASSIGN"];
-  n16 [label="ASSIGN"];
-  n17 [label="n"];
-  n18 [label="R"];
-  n19 [label="ASSIGN"];
-  n19 [label="ASSIGN"];
-  n20 [label="N"];
-  n21 [label="R"];
-  n22 [label="METHOD"];
-  n22 [label="METHOD"];
-  n23 [label="startRead"];
-  n24 [label="void"];
-  n25 [label=">"];
-  n25 [label=">"];
-  n26 [label="n"];
-  n27 [label="0"];
-  n28 [label="BLOCK"];
-  n28 [label="BLOCK"];
-  n29 [label="ASSIGN"];
-  n29 [label="ASSIGN"];
-  n30 [label="n"];
-  n31 [label="-"];
-  n31 [label="-"];
-  n32 [label="n"];
-  n33 [label="1"];
-  n34 [label="METHOD"];
-  n34 [label="METHOD"];
-  n35 [label="startWrite"];
-  n36 [label="void"];
-  n37 [label="=="];
-  n37 [label="=="];
-  n38 [label="n"];
-  n39 [label="N"];
-  n40 [label="BLOCK"];
-  n40 [label="BLOCK"];
-  n41 [label="ASSIGN"];
-  n41 [label="ASSIGN"];
-  n42 [label="n"];
-  n43 [label="0"];
-  n44 [label="METHOD"];
-  n44 [label="METHOD"];
-  n45 [label="endRead"];
-  n46 [label="void"];
-  n47 [label="BLOCK"];
-  n47 [label="BLOCK"];
-  n48 [label="ASSIGN"];
-  n48 [label="ASSIGN"];
-  n49 [label="n"];
-  n50 [label="+"];
-  n50 [label="+"];
-  n51 [label="n"];
-  n52 [label="1"];
-  n53 [label="METHOD"];
-  n53 [label="METHOD"];
-  n54 [label="endWrite"];
-  n55 [label="void"];
-  n56 [label="BLOCK"];
-  n56 [label="BLOCK"];
-  n57 [label="ASSIGN"];
-  n57 [label="ASSIGN"];
-  n58 [label="n"];
-  n59 [label="N"];
+  n4 [label="ATTR"];
+  n4 [label="ATTR"];
+  n5 [label="n"];
+  n6 [label="int"];
+  n7 [label="METHOD"];
+  n7 [label="METHOD"];
+  n8 [label="startRead"];
+  n9 [label="void"];
+  n10 [label="=="];
+  n10 [label="=="];
+  n11 [label="n"];
+  n12 [label="n"];
+  n13 [label="BLOCK"];
+  n13 [label="BLOCK"];
+  n14 [label="ASSIGN"];
+  n14 [label="ASSIGN"];
+  n15 [label="n"];
+  n16 [label="n"];
 
   n0 -> n1 // "FILE" -> "CLASS"
   n1 -> n2 // "CLASS" -> "ReaderWriter"
   n1 -> n3 // "CLASS" -> "MEMBERS"
-  n3 -> n4 // "MEMBERS" -> "ATTR_DECL"
-  n4 -> n5 // "ATTR_DECL" -> "int"
-  n4 -> n6 // "ATTR_DECL" -> "n"
-  n3 -> n7 // "MEMBERS" -> "ATTR_DECL"
-  n7 -> n8 // "ATTR_DECL" -> "int"
-  n7 -> n9 // "ATTR_DECL" -> "N"
-  n3 -> n10 // "MEMBERS" -> "INIT"
-  n10 -> n11 // "INIT" -> "ARGS_DECL"
-  n11 -> n12 // "ARGS_DECL" -> "ARG_DECL"
-  n12 -> n13 // "ARG_DECL" -> "int"
-  n12 -> n14 // "ARG_DECL" -> "R"
-  n10 -> n15 // "INIT" -> "BLOCK"
-  n15 -> n16 // "BLOCK" -> "ASSIGN"
-  n16 -> n17 // "ASSIGN" -> "n"
-  n16 -> n18 // "ASSIGN" -> "R"
-  n15 -> n19 // "BLOCK" -> "ASSIGN"
-  n19 -> n20 // "ASSIGN" -> "N"
-  n19 -> n21 // "ASSIGN" -> "R"
-  n3 -> n22 // "MEMBERS" -> "METHOD"
-  n22 -> n23 // "METHOD" -> "startRead"
-  n22 -> n24 // "METHOD" -> "void"
-  n22 -> n25 // "METHOD" -> ">"
-  n25 -> n26 // ">" -> "n"
-  n25 -> n27 // ">" -> "0"
-  n22 -> n28 // "METHOD" -> "BLOCK"
-  n28 -> n29 // "BLOCK" -> "ASSIGN"
-  n29 -> n30 // "ASSIGN" -> "n"
-  n29 -> n31 // "ASSIGN" -> "-"
-  n31 -> n32 // "-" -> "n"
-  n31 -> n33 // "-" -> "1"
-  n3 -> n34 // "MEMBERS" -> "METHOD"
-  n34 -> n35 // "METHOD" -> "startWrite"
-  n34 -> n36 // "METHOD" -> "void"
-  n34 -> n37 // "METHOD" -> "=="
-  n37 -> n38 // "==" -> "n"
-  n37 -> n39 // "==" -> "N"
-  n34 -> n40 // "METHOD" -> "BLOCK"
-  n40 -> n41 // "BLOCK" -> "ASSIGN"
-  n41 -> n42 // "ASSIGN" -> "n"
-  n41 -> n43 // "ASSIGN" -> "0"
-  n3 -> n44 // "MEMBERS" -> "METHOD"
-  n44 -> n45 // "METHOD" -> "endRead"
-  n44 -> n46 // "METHOD" -> "void"
-  n44 -> n47 // "METHOD" -> "BLOCK"
-  n47 -> n48 // "BLOCK" -> "ASSIGN"
-  n48 -> n49 // "ASSIGN" -> "n"
-  n48 -> n50 // "ASSIGN" -> "+"
-  n50 -> n51 // "+" -> "n"
-  n50 -> n52 // "+" -> "1"
-  n3 -> n53 // "MEMBERS" -> "METHOD"
-  n53 -> n54 // "METHOD" -> "endWrite"
-  n53 -> n55 // "METHOD" -> "void"
-  n53 -> n56 // "METHOD" -> "BLOCK"
-  n56 -> n57 // "BLOCK" -> "ASSIGN"
-  n57 -> n58 // "ASSIGN" -> "n"
-  n57 -> n59 // "ASSIGN" -> "N"
+  n3 -> n4 // "MEMBERS" -> "ATTR"
+  n4 -> n5 // "ATTR" -> "n"
+  n4 -> n6 // "ATTR" -> "int"
+  n3 -> n7 // "MEMBERS" -> "METHOD"
+  n7 -> n8 // "METHOD" -> "startRead"
+  n7 -> n9 // "METHOD" -> "void"
+  n7 -> n10 // "METHOD" -> "=="
+  n10 -> n11 // "==" -> "n"
+  n10 -> n12 // "==" -> "n"
+  n7 -> n13 // "METHOD" -> "BLOCK"
+  n13 -> n14 // "BLOCK" -> "ASSIGN"
+  n14 -> n15 // "ASSIGN" -> "n"
+  n14 -> n16 // "ASSIGN" -> "n"
 
 }
 
-line 1: def class ReaderWriter
-var declaration: line 2: def n
-var declaration: line 3: def N
-var declaration: line 4: def R
-enterBlock-----locals: []
-atoms 5 n
-atoms 5 R
-atoms 6 N
-atoms 6 R
-exitBlock-----locals: []
-line 8: def method startRead
-enterBlock-----locals: []
-atoms 10 n
-atoms 10 n
-exitBlock-----locals: []
-exitMethod-----args: ReaderWriter.startRead()
-line 13: def method startWrite
-enterBlock-----locals: []
-atoms 15 n
-exitBlock-----locals: []
-exitMethod-----args: ReaderWriter.startWrite()
-line 18: def method endRead
-enterBlock-----locals: []
-atoms 20 n
-atoms 20 n
-exitBlock-----locals: []
-exitMethod-----args: ReaderWriter.endRead()
-line 22: def method endWrite
-enterBlock-----locals: []
-atoms 24 n
-atoms 24 N
-exitBlock-----locals: []
-exitMethod-----args: ReaderWriter.endWrite()
-exitClass-----members: class ReaderWriter:{n, N, R, startRead, startWrite, endRead, endWrite}
-globals: [int, float, void, ReaderWriter]
-line 2: set var type <ReaderWriter.n:global.int>
-line 3: set var type <ReaderWriter.N:global.int>
-line 4: set var type <ReaderWriter.R:global.int>
+line 2: def n type global.int
+line 3: def method startRead
+locals: []
+args: <global.startRead():global.void>
+primary
+
 [WARNING] 
 java.lang.reflect.InvocationTargetException
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -254,23 +119,24 @@ java.lang.reflect.InvocationTargetException
 	at java.lang.reflect.Method.invoke(Method.java:497)
 	at org.codehaus.mojo.exec.ExecJavaMojo$1.run(ExecJavaMojo.java:297)
 	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.util.NoSuchElementException: can't look backwards more than one token in this stream
-	at org.antlr.runtime.misc.LookaheadStream.LB(LookaheadStream.java:159)
-	at org.antlr.runtime.misc.LookaheadStream.LT(LookaheadStream.java:120)
-	at org.antlr.runtime.RecognitionException.extractInformationFromTreeNodeStream(RecognitionException.java:144)
-	at org.antlr.runtime.RecognitionException.<init>(RecognitionException.java:111)
-	at org.antlr.runtime.EarlyExitException.<init>(EarlyExitException.java:38)
-	at lime.antlr3.Gen.translationunit(Gen.java:219)
-	at lime.antlr3.Main.main(Main.java:82)
+Caused by: java.lang.NullPointerException
+	at lime.antlr3.Gen.primary(Gen.java:1548)
+	at lime.antlr3.Gen.expr(Gen.java:1337)
+	at lime.antlr3.Gen.expr(Gen.java:1290)
+	at lime.antlr3.Gen.methodDeclaration(Gen.java:659)
+	at lime.antlr3.Gen.classMember(Gen.java:447)
+	at lime.antlr3.Gen.classdeclaration(Gen.java:331)
+	at lime.antlr3.Gen.translationunit(Gen.java:206)
+	at lime.antlr3.Main.main(Main.java:86)
 	... 6 more
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 4.328 s
-[INFO] Finished at: 2016-04-28T15:35:50-04:00
-[INFO] Final Memory: 15M/310M
+[INFO] Total time: 7.751 s
+[INFO] Finished at: 2016-05-02T01:03:23-04:00
+[INFO] Final Memory: 23M/327M
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.2.1:java (default-cli) on project lime: An exception occured while executing the Java class. null: InvocationTargetException: can't look backwards more than one token in this stream -> [Help 1]
+[ERROR] Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.2.1:java (default-cli) on project lime: An exception occured while executing the Java class. null: InvocationTargetException: NullPointerException -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

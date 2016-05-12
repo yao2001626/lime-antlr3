@@ -1,6 +1,6 @@
 group llvm;
 
-opToInstr ::= [ // map operators to LLVM IR instructions
+opToInstr ::= [ 
         "+":"add",
         "-":"sub",
         "*":"mul",
@@ -15,32 +15,97 @@ opToInstr ::= [ // map operators to LLVM IR instructions
 
 llvmType ::= [ "int":"i32", "void":"void" ]
 
-
-file(decls, strings) ::= <<
+file(decls) ::= <<
 declare i32 @printf(i8 *, ...)
 <decls; separator="\n">
 >>
 
-classdeclaration(sym, member)  ::= <<
-declare classlkjlk;k;kkkkkllllllll
-<sym>
+classdeclaration(sym, member)::=<<
+this is the class <sym.name>
 <member>
 >>
 
-attrdecl(sym) ::=<<
-this is attr decl \n
+initarg(a) ::= <<
+%<a.id> = alloca i32
+store i32 %<a.id>_arg, i32* %<a.id>
 >>
 
-init() ::=<<
-this is init \n
->>
-
-method(sym) ::=<<
-this  is method \n
->>
-
-action(sym) ::=<<
-this  is action \n
+attrdecl(id, type)::=<<
+this is attr decl
 >>
 
 
+method (sym, args, block) ::=<<
+define <llvmType.(sym.type.name)> @<sym.name>(<args; separator=", ">) {
+; init arg(s): <args:{a | <a.id>}; separator=", ">
+    <args:initarg(); separator="\n">
+    <block>
+<if(sym.void)>
+    ret void<\n>
+<else>
+    ret i32 0<\n>
+<endif>
+}
+>>
+
+block(stats) ::= <<
+
+<stats; separator="\n">
+>>
+
+
+if(cond, stat1, stat2, descr, tmp) ::= <<
+; <descr>
+<cond>
+br i1 %r<cond.reg>, label %true<tmp>, label %false<tmp>
+true<tmp>:
+<stat1>
+<if(stat2)>
+br label %end<tmp>
+false<tmp>:
+<stat2>
+end<tmp>:
+<else>
+false<tmp>:
+<endif>
+>>
+
+while(cond, stat, descr, tmp) ::= <<
+; <descr>
+    br label %loop ; force basic block boundary
+loop<id>:
+    <cond>
+    br i1 %r<cond.reg>, label %start<tmp>, label %end<tmp>
+start<tmp>:
+    <stat>
+    br label %loop<id>
+end<tmp>:
+>>
+
+assign(id, rhs, descr) ::= <<
+; <descr>
+<rhs>
+store i32 %r<rhs.reg>, i32* %<id>
+>>
+
+return(v, descr) ::= <<
+; <descr>
+<v>
+ret i32 %r<v.reg>
+>>
+
+call(reg, sym, args, descr) ::= <<
+; <descr>
+<args; separator="\n">
+%r<reg> = call <llvmType.(sym.type)>(<args:{i32}; separator=",">)* @<sym.name>(<args:{i32 %r<it.reg>}; separator=", ">)
+>>
+
+bop(reg, op, a, b) ::= <<
+<a>
+<b>
+%r<reg> = <opToInstr.(op.text)> i32 %r<a.reg>, %r<b.reg>
+>>
+
+loadvar(reg, id) ::= "%r<reg> = load i32* %<id>"
+
+int(reg, v) ::= "%r<reg> = add i32 <v>, 0"

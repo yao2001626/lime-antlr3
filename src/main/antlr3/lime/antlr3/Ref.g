@@ -60,7 +60,7 @@ enterMethod
 	
 	
 varDeclaration // global, parameter, or local variable
-	:   ^((ATTR_DECL|VAR_DECL|ARG_DECL) type ID )
+	:   ^((ATTR|VAR|ARG) type ID )
 		{
 		$ID.symbol.type = $type.tsym; // set return type of variable
 		System.out.println("line "+$ID.getLine()+": set var type "+$ID.symbol);

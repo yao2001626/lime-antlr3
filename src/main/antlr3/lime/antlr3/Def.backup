@@ -54,7 +54,7 @@ enterMethod
 	: ^(METHOD ID type=. .*) // match method subtree with 0-or-more args
 	{
 		System.out.println("line "+$ID.getLine()+": def method "+$ID.text);
-		$type.scope = currentScope;
+		$type.scope = currentScope; //????
 		MethodSymbol ms = new MethodSymbol($ID.text,null,currentScope);
 		ms.def = $ID;            // track AST location of def's ID
 		$ID.symbol = ms;         // track in AST
@@ -122,14 +122,25 @@ atoms
 
 // START: var
 varDeclaration // parameter, or local variable
-    :   ^(( ATTR_DECL | VAR_DECL | ARG_DECL ) type=. ID .?)
+    :   ^(( ATTR| VAR | ARG ) t=type ID)
 		{
 			System.out.println("var declaration: line "+$ID.getLine()+": def "+$ID.text);
 			$type.scope = currentScope;
-			VariableSymbol vs = new VariableSymbol($ID.text,null);
+			VariableSymbol vs = new VariableSymbol($ID.text,$t.tsym);
 			vs.def = $ID;            // track AST location of def's ID
 			$ID.symbol = vs;         // track in AST
 			currentScope.define(vs);
 		}
     ;
 // END: field
+
+type returns [Type tsym]
+@init {
+	// get scope from AST; use to resolve type name and save it in AST
+	$start.symbol = $start.scope.resolve($start.getText());
+	$tsym = (Type)$start.symbol; // return Type from this rule
+}
+	:  Inttype
+	|  Voidtype
+	|	ID
+	;

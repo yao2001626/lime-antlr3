@@ -1,0 +1,7 @@
+class ReaderWriter {
+	attr int n
+	method startRead() void when n==n do
+		{
+			n :=  n;
+		}
+}

@@ -1,4 +1,4 @@
-// $ANTLR 3.4 lime\\antlr3\\TTree.g 2016-04-28 15:04:44
+// $ANTLR 3.4 lime\\antlr3\\TTree.g 2016-05-02 00:23:11
 
 
     package lime.antlr3;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class TTree extends TreeParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "Action", "Add", "And", "Assert", "Assign", "Attr", "Begin", "Bool", "Booltype", "CBrace", "CBracket", "COMMENT", "CParen", "Class", "Colon", "Comma", "Divide", "Do", "Dot", "Else", "End", "Equals", "Excl", "GT", "GTEquals", "ID", "INT", "If", "Inherit", "Initialization", "Inttype", "LETTER", "LINE_COMMENT", "LT", "LTEquals", "Method", "Modulus", "Multiply", "NEquals", "New", "Null", "OBrace", "OBracket", "OParen", "Or", "Pow", "QMark", "Return", "SColon", "STRING", "Subtract", "Super", "Then", "This", "Var", "Voidtype", "WS", "When", "While", "ACTION", "ARGS_DECL", "ARG_DECL", "ASSIGN", "ATTR_DECL", "BLOCK", "CALL", "CLASS", "DOT", "ELIST", "EXPR", "FILE", "IF", "INHERIT", "INIT", "MEMBERS", "METHOD", "RETURN", "VAR_DECL", "WHILE", "ADD", "KEYSER", "SCRIPT", "SOZE"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "Action", "Add", "And", "Assert", "Assign", "Attr", "Begin", "Bool", "Booltype", "CBrace", "CBracket", "COMMENT", "CParen", "Class", "Colon", "Comma", "Divide", "Do", "Dot", "Else", "End", "Equals", "Excl", "GT", "GTEquals", "ID", "INT", "If", "Inherit", "Initialization", "Inttype", "LETTER", "LINE_COMMENT", "LT", "LTEquals", "Method", "Modulus", "Multiply", "NEquals", "New", "Null", "OBrace", "OBracket", "OParen", "Or", "Pow", "QMark", "Return", "SColon", "STRING", "Subtract", "Super", "Then", "This", "Var", "Voidtype", "WS", "When", "While", "ACTION", "ARG", "ARGS", "ASSIGN", "ATTR", "BLOCK", "CALL", "CLASS", "DOT", "ELIST", "EXPR", "FILE", "IF", "INHERIT", "INIT", "MEMBERS", "METHOD", "RETURN", "VAR", "VAR_DECL", "WHILE", "ADD", "KEYSER", "SCRIPT", "SOZE"
     };
 
     public static final int EOF=-1;
@@ -77,10 +77,10 @@ public class TTree extends TreeParser {
     public static final int When=61;
     public static final int While=62;
     public static final int ACTION=63;
-    public static final int ARGS_DECL=64;
-    public static final int ARG_DECL=65;
+    public static final int ARG=64;
+    public static final int ARGS=65;
     public static final int ASSIGN=66;
-    public static final int ATTR_DECL=67;
+    public static final int ATTR=67;
     public static final int BLOCK=68;
     public static final int CALL=69;
     public static final int CLASS=70;
@@ -94,12 +94,13 @@ public class TTree extends TreeParser {
     public static final int MEMBERS=78;
     public static final int METHOD=79;
     public static final int RETURN=80;
-    public static final int VAR_DECL=81;
-    public static final int WHILE=82;
-    public static final int ADD=83;
-    public static final int KEYSER=84;
-    public static final int SCRIPT=85;
-    public static final int SOZE=86;
+    public static final int VAR=81;
+    public static final int VAR_DECL=82;
+    public static final int WHILE=83;
+    public static final int ADD=84;
+    public static final int KEYSER=85;
+    public static final int SCRIPT=86;
+    public static final int SOZE=87;
 
     // delegates
     public TreeParser[] getDelegates() {
@@ -439,14 +440,14 @@ public class TTree extends TreeParser {
  
 
     public static final BitSet FOLLOW_SCRIPT_in_a114 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_stuff_in_a116 = new BitSet(new long[]{0x0020000060000008L,0x0000000000180000L});
+    public static final BitSet FOLLOW_stuff_in_a116 = new BitSet(new long[]{0x0020000060000008L,0x0000000000300000L});
     public static final BitSet FOLLOW_SCRIPT_in_a124 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_keyser_in_stuff137 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_expression_in_stuff143 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_KEYSER_in_keyser157 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_SOZE_in_keyser159 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_ADD_in_expression180 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expression_in_expression182 = new BitSet(new long[]{0x0020000060000000L,0x0000000000080000L});
+    public static final BitSet FOLLOW_expression_in_expression182 = new BitSet(new long[]{0x0020000060000000L,0x0000000000100000L});
     public static final BitSet FOLLOW_expression_in_expression184 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_ID_in_expression191 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_INT_in_expression197 = new BitSet(new long[]{0x0000000000000002L});
